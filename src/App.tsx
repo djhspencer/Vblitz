@@ -5,6 +5,9 @@ import { useAxios } from "./context/AxiosContext";
 import { useEffect, useCallback, useState } from "react";
 import { LoginReg } from "./pages/LoginReg";
 import ReqAuth from "./components/ReqAuth";
+import { Home } from "./pages/Home";
+import { Navbar } from "./components/Navbar";
+import { CreateSet } from "./pages/CreateSet";
 
 
 function App() {
@@ -15,7 +18,7 @@ function App() {
   const loadJWT = useCallback(() => {
     const options = {
       method: "GET",
-      url: "http://localhost:4000/users/refresh",
+      url: "http://localhost:5000/users/refresh",
       withCredentials: true,
     };
 
@@ -49,11 +52,13 @@ function App() {
   if (status !== "loading") {
     return (
       <>
-
+        <Navbar />
         <Box>
           <Routes>
             <Route path="/login" element={<LoginReg />} />
             <Route element={<ReqAuth />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/createSet" element={<CreateSet />} />
             </Route>
           </Routes>
         </Box>

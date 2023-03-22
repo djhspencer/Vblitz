@@ -22,11 +22,11 @@ export function AxiosProvider({ children }: AxiosProviderProps) {
   const { getAccessToken, updateAuthState, authState } = useAuth();
 
   const authAxios = axios.create({
-    baseURL: "http://localhost:4000/users",
+    baseURL: "http://localhost:5000/users",
   });
 
   const publicAxios = axios.create({
-    baseURL: "http://localhost:4000/users",
+    baseURL: "http://localhost:5000/users",
   });
 
   authAxios.interceptors.request.use(
@@ -48,7 +48,7 @@ export function AxiosProvider({ children }: AxiosProviderProps) {
 
     const options = {
       method: "GET",
-      url: "http://localhost:4000/users/refresh",
+      url: "http://localhost:5000/users/refresh",
       withCredentials: true,
     };
 
