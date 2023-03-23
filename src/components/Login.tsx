@@ -34,9 +34,9 @@ export function Login({ pathName, setLogin }: LoginProps) {
       method: "POST",
       data: {
         email: email,
-        password: password,
+        pass: password,
       },
-      url: "http://localhost:4000/users/login",
+      url: "http://localhost:5000/users/login",
       withCredentials: true,
     };
 

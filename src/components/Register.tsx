@@ -46,7 +46,7 @@ export function Register({ pathName, setLogin }: RegisterProps) {
         email: email,
         password: password,
       },
-      url: "http://localhost:4000/users/register",
+      url: "http://localhost:5000/users/register",
       withCredentials: true,
     };
 
