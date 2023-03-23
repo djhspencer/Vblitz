@@ -37,6 +37,7 @@ export function Navbar() {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
+        fontSize="md"
       >
         <Box>
           <Link mx="3" as={NavLink} to="/createSet">

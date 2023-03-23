@@ -6,6 +6,7 @@ import { useEffect, useCallback, useState } from "react";
 import { LoginReg } from "./pages/LoginReg";
 import ReqAuth from "./components/ReqAuth";
 import { Home } from "./pages/Home";
+import { Library } from "./pages/Library";
 import { Navbar } from "./components/Navbar";
 import { CreateSet } from "./pages/CreateSet";
 
@@ -53,11 +54,12 @@ function App() {
     return (
       <>
         <Navbar />
-        <Box>
+        <Box bg="gray.50">
           <Routes>
             <Route path="/login" element={<LoginReg />} />
             <Route element={<ReqAuth />}>
               <Route path="/home" element={<Home />} />
+              <Route path="/library" element={<Library />} />
               <Route path="/createSet" element={<CreateSet />} />
             </Route>
           </Routes>

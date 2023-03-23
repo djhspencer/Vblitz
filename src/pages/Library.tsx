@@ -13,23 +13,24 @@ import { useAxios } from "../context/AxiosContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FiPlusCircle } from "react-icons/fi";
+import { CardSet } from "../components/CardSet";
 
-export function Home() {
+export function Library() {
   const { authAxios } = useAxios();
-  const [folders, setFolders] = useState<any[]>([]);
+  const [cardSets, setCardSets] = useState<any[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "http://localhost:5000/folders/getFolders",
+      url: "http://localhost:5000/card_sets/getCardSets",
       withCredentials: true,
     };
 
     authAxios(options)
       .then(({ data }) => {
         console.log(data);
-        setFolders(data);
+        setCardSets(data);
         //setAuthed(true);
         //setLoading(false);
       })
@@ -91,9 +92,9 @@ export function Home() {
       <Button onClick={() => createFolder()}>Make folder</Button>
 
       <SimpleGrid columns={[2, null, 4]} spacing="8px" mb="1rem">
-        {folders.map((folder) => (
-          <Box key={folder.id}>
-            <Folder {...folder} />
+        {cardSets.map((cardset) => (
+          <Box key={cardset.id}>
+            <CardSet {...cardset} />
           </Box>
         ))}
         {/* <Box>
